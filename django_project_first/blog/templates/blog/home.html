@@ -1,19 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
-    {% for post in posts %}
-    <div style="width: 100%; background: azure; margin: 0 50px; padding: 5%">
-        <h1>{{post.title}}</h1>
-        <p>{{post.body}}</p>
-        <small>post.created</small>
+{% extends "blog/base.html" %}   <!-- we extends the base.html file -->
+{% block content %}  <!-- block content from base.html -->
+
+    <div class="row">
+        <div class="col-md-9">
+            {% for post in posts %}
+                <div class="card-body mt-3 mr-3 ml-3 bg-light">
+                    <h1>{{post.title}}</h1>
+                    <p>{{post.body}}</p>
+                    <small>{{post.created}}</small>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-3 card mt-3 pt-3 pl-2 pr-2 ">
+            <ul class="list-group">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
     </div>
-    {% endfor %}
-</body>
-</html>
+{% endblock content%}
