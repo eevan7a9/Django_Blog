@@ -1,0 +1,95 @@
+Starter-?
+	to install django in pipenv: pipenv install django 😎️
+	to show lists of sub-commands : $ django-admin 🤔️
+	to create new django project : $ django-admin startproject <project-name> 😀️
+	to run the django server:
+		?if not yet inside the created project folder:
+			cd <project-name>
+		?else:
+			$ python manage.py runserver # localhost:8000/
+	to start new app: ☺️
+		->inside the project folder:
+		$ Python manage.py startproject <appName>✔️
+
+Tips-?
+
+URLS: 🎯️
+	->go to 'project/urls.py':
+
+		from django.urls import include  # url pattern from apps exp:'app.urls'
+
+		urlpatterns = [
+		    # localhost:8000/admin/
+	    	    path('admin/', admin.site.urls),
+		    # localhost:8000/app/
+		    path('app/', include('app.urls')),  # file in app
+			]
+
+	->go to app create urls.py & inside 'app/urls.py' input this:
+		from django.urls import path  # to use django urls
+		from . import views  # to import views.py
+
+		urlpatterns = [
+		    path('', views.home_page, name='app-home_page'),
+		    path('about/', views.about_page, name='app-about_page'),
+		]
+
+VIEWS: 🎞️
+	->go to app/views.py:
+	?if to test using HttpResponse:
+		from django.http import HttpResponse # import at the top
+		
+		def home_page(request):  # create a method to initialize
+			return HttpResponse('<h1>Hello World</h1>')✔️
+	?else if to render a template:
+		from django.shortcuts import render # import a the top
+		
+		def home_page(request):
+			return render(request, 'app/home.html')✔️ # app/templates/app/home.html
+ 
+			*want to pass a variable? 🤔️
+			food_variable = 'burger'; # declare variable
+			drink_variable = 'water'; # declare variable
+			context = {
+				'food' = food_variable,
+				'drink' = drink_variable
+				}
+			return render(request, 'app/home.html', context)✔️ # app/templates/app/home.html
+
+TEMPLATES: 🏗️
+	->first create new directory name it 'templates' in you're app
+	->inside 'app/templates' make another directory with similar name as you're app
+	-> sample path 'app/templates/app/ inside you can create '.html' files
+	-> 'app/templates/app/home.html' will be called by 'app/views.py' as 'app/home.html'
+
+MIGRATIONS:
+	to check any changes inside the migration:
+		*does not perform migration does not run or apply any changes
+		$ python manage.py makemigrations 
+	to apply migration
+		*will apply any changes
+		$ python manage.py migrate
+
+
+ADMIN: 👮‍♂️️
+	->to create superuser
+		$ python manage.py createsuperuser
+	->go admin page:
+		localhost:8000/admin/
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
