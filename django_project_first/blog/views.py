@@ -1,4 +1,4 @@
-from django.shortcuts import render
+ango.shortcuts import render
 from django.http import HttpResponse
 
 dummy_post = [
@@ -16,8 +16,8 @@ def home_page(request):  # don't forget to add request as argument
     context = {
         'posts': dummy_post,  # posts will be the key word we use on the html template
     }
-    return render(request, 'blog/home.html.django', context)  # .templates/blog/home.html
-
+    # return render(request, 'blog/home.html.django', context)  # .templates/blog/home.html
+    return render(request, 'blog/home.html', context)
 
 def about_page(request):
-    return render(request, 'blog/about.html.django', {'title': 'About Page'})  # .templates/blog/about.html
+    return render(request, 'blog/about.html', {'title': 'About Page'})  # .templates/blog/about.html
