@@ -67,9 +67,11 @@ MIGRATIONS:
 		*does not perform migration does not run or apply any changes
 		$ python manage.py makemigrations 
 	to apply migration
-		*will apply any changes
+		*will apply any changes:
 		$ python manage.py migrate
-
+	to check the sql query of the migration:
+		$ python manage.py sqlmigrate <app> <migration number>		
+		sample: $ python manage.py sqlmigrate blog 0001 ✔️
 
 ADMIN: 👮‍♂️️
 	->to create superuser
