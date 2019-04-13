@@ -1,6 +1,3 @@
-/* this holds the custom css of our project */
-{% load static%}
-
-.bg-main{
-    background-color: #4a0937!important;
+.bg-main {
+  background-color: #4a0937 !important;
 }
