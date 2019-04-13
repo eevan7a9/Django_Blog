@@ -10,6 +10,12 @@ Starter-?
 	to start new app: ☺️
 		->inside the project folder:
 		$ Python manage.py startproject <appName>✔️
+	to check pipenv path:
+		*when inside pipenv shell
+		$ pipenv --where
+	to ckeck virtual environment path : 🤩️
+		*when inside pipenv shell	
+		$ pipenv --venv 
 
 Tips-?
 
