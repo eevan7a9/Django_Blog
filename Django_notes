@@ -40,6 +40,18 @@ URLS: 🎯️
 		    path('about/', views.about_page, name='app-about_page'),
 		]
 
+ADMIN: 👮‍♂️️
+	->to create superuser
+		$ python manage.py createsuperuser
+	->go admin page:
+		localhost:8000/admin/
+	-> to register an app to the admin:
+		app/admin.py:
+			from django.contrib import admin
+			from .models import Post
+			
+			admin.site.register(Post)
+ 
 VIEWS: 🎞️
 	->go to app/views.py:
 	?if to test using HttpResponse:
@@ -78,17 +90,38 @@ MIGRATIONS:
 	to check the sql query of the migration:
 		$ python manage.py sqlmigrate <app> <migration number>		
 		sample: $ python manage.py sqlmigrate blog 0001 ✔️
+SHELL:
+	->to run python code & interact with django object:
+		$ python manage.py shell
+			* to check all users/posts:
+		>>>from blog.models import Post
+		>>>from django.contrib.auth.models import User  
+		>>>User.objects.all() # will return all Users if any
+		>>>Post.objects.all() # will return all Posts if any
+		>>>Post.objects.first() # will return the first post
+		>>>User.objects.filter(username='admin') # will return users with 'admin' username
+		>>>User.objects.filter(username='user1').first() # will return first username with 'user1'
+		>>>user = User.objects.filter(username='user1').first()
+		>>>user.id # this will return user with username 'user1' it's 'id'
+			* we create new Post
+		>>>post_1 = Post(title='post title', content='some content', author=user)
+		>>>post_1.save() # to save the effect
+		>>>post_1.title # will return the title of the created post
+		>>>Post.objects.all() 
+		*will show you all the posts you created
+		?if you want to show a name of the post when performing this command:
+			in models.Post() add dunder __str__(self):	
+			def __str__(self):
+				return self.title
+		>>>post_1.author.id # this will return the id of the user who created the post
+			* to get all he posts the user created
+		>>>user = User.objects.filter(username='somename').first()
+		>>>user.post_set.all() # will show all the posts the user created
+			* to create a post directly by the user
+		>>>user.post_set.create(title='title 1', content='some content') # author not it is automatic
 
-ADMIN: 👮‍♂️️
-	->to create superuser
-		$ python manage.py createsuperuser
-	->go admin page:
-		localhost:8000/admin/
- 
-
-
-
-
+		
+		
 
 
 
