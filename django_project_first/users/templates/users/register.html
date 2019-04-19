@@ -1,8 +1,9 @@
 {% extends "blog/base.html" %}
 <!-- we extends the base.html file of blog app-->
+{% load crispy_forms_tags %}
 {% block content %}
 <!-- block content from base.html of blog app-->
-<div class="card mt-2">
+<div class="card mt-4">
 	<div class="card-header">
 		Register here!!!
 	</div>
@@ -10,7 +11,8 @@
 		<form method="POST">
 			{% csrf_token %}
 			<fieldset class="form-group">
-				{{form.as_p}}  {# .as_p to format form in paragraph #}
+				{# {{form.as_p}}  .as_p to format form in paragraph  #}
+				{{form|crispy }} {# we filter form to use default crispy #}
 			</fieldset>
 			<button class="btn btn-outline-primary">Submit</button>
 		</form>
@@ -20,3 +22,4 @@
 	</div>
 </div>
 {% endblock content %}
+ 
