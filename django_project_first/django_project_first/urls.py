@@ -20,5 +20,6 @@ from django.urls import include  # to be able to add url pattern from apps exp:'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),  # after you create urls.py file in blog app
+    path('register', include('users.urls'))
     #path('blog/', include('blog.urls')),
 ]

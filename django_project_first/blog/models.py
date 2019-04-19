@@ -3,6 +3,7 @@ from django.utils import timezone  # we need this coz we use timezone for 'creat
 from django.contrib.auth.models import User  # we need this to be able to set user as primary key
 # Create your models here.
 
+
 class Post(models.Model):
 	title = models.CharField(max_length=100)
 	content = models.TextField()

@@ -2,10 +2,6 @@
 <!-- we extends the base.html file -->
 {% block content %}
 <!-- block content from base.html -->
-
-<div class="row">
-  {# mainDiv starts here #}
-  <div class="col-md-9">
     {% for post in posts %}
     <div class="card-body mt-3 mr-3 ml-3 bg-light">
       <h1>{{ post.title }}</h1>
@@ -15,16 +11,6 @@
     {% endfor %}
 
     <h4>Hello World</h4>
-  </div>
-  {# Sidebar Starts here #}
-  <div class="col-md-3 card mt-3 pt-3 pl-2 pr-2 ">
-    <ul class="list-group">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-  </div>
-</div>
+  
+  
 {% endblock content%}
